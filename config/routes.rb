@@ -1,4 +1,18 @@
 ZombieTwitter::Application.routes.draw do
+  resources :zombies do
+    resources :tweets
+  end
+
+  get "pages/home"
+
+  get "pages/sign_up"
+
+  root :to => "pages#home"
+
+  match '/sign_up' => 'pages#sign_up'
+
+  match '/new_tweet' => 'tweets#new'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

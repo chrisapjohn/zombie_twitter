@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @zombie.name %>
+</p>
+
+<p>
+  <b>Graveyard:</b>
+  <%= @zombie.graveyard %>
+</p>
+
+<h3>Recent Tweets:</h3>
+
+<table>
+	<% @zombie.tweets.each do |tweet| %>
+	  <tr>
+	    <td><b><%= tweet.status %></b></td>
+	  </tr>
+	<% end %>
+</table>
+
+<h3>
+	<%= link_to 'New Tweet', new_zombie_tweet_path(@zombie) %>
+</h3>
+
+
+
+<%= link_to 'Edit', edit_zombie_path(@zombie) %> |
+<%= link_to 'Back', zombies_path %>
